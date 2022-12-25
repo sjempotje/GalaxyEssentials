@@ -130,9 +130,3 @@ Distributed under the MIT License. See [LICENSE](https://github.com/SjemPotje/ga
 
 * **Sjempotje** - *Freelance* - [Sjempotje](https://github.com/SjemPotje/) - *Building the REPO*
 * **TheGameHub** - *Discord server and ESports* - [TheGameHub](https://discord.gg/eZay8FNZMW) - **
-
-## Acknowledgements
-
-* []()
-* []()
-* []()
