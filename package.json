@@ -1,0 +1,59 @@
+{
+  "name": "galaxyessentials",
+  "version": "2.5",
+  "description": "A discord bot build on the galaxymusic framework",
+  "main": "index.js",
+  "dependencies": {
+    "@discordjs/rest": "^1.0.1",
+    "@hammerhq/localization": "^0.1.2-alpha.0",
+    "axios": "^1.1.3",
+    "chillout": "^5.0.0",
+    "common-tags": "^1.8.2",
+    "delay": "^5.0.0",
+    "discord-api-types": "^0.37.0",
+    "discord-hybrid-sharding": "^1.7.4",
+    "discord.js": "^14.6.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.2",
+    "googleapis": "^48.0.0",
+    "humanize-duration": "^3.27.3",
+    "kazagumo": "^2.3.0",
+    "kazagumo-deezer": "^1.2.1",
+    "kazagumo-spotify": "^1.1.5",
+    "lyrics-finder": "^21.7.0",
+    "moment": "^2.29.4",
+    "mongoose": "^6.7.1",
+    "node-cron": "^3.0.2",
+    "openai": "^3.1.0",
+    "plsargs": "^0.1.6",
+    "pretty-ms": "^7.0.1",
+    "recursive-readdir": "^2.2.3",
+    "shoukaku": "^3.2.2",
+    "stuffs": "^0.1.22",
+    "voucher-code-generator": "^1.3.0",
+    "winston": "^3.8.1",
+    "youtube-sr": "^4.3.4"
+  },
+  "scripts": {
+    "start": "node ./src/client/normal/index.js",
+    "start:normal": "node ./src/client/normal/index.js",
+    "dev": "nodemon ./src/client/sharding/index.js",
+    "dev:normal": "nodemon ./src/client/normal/index.js",
+    "deploy:global": "node deploySlash.js global",
+    "deploy:global:clear": "node deploySlash.js global clear"
+  },
+  "author": "TheGameHub",
+  "license": "agpl-3.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sjempotje/galaxyessentials.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sjempotje/galaxyessentials/issues"
+  },
+  "homepage": "https://github.com/sjempotje/galaxyessentials#readme",
+  "devDependencies": {
+    "node": "^17.7.2",
+    "nodemon": "^2.0.19"
+  }
+}

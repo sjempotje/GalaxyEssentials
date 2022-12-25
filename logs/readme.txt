@@ -1,0 +1,1 @@
+Please note that you don't share your logs with us or others if it contains sensitive information!

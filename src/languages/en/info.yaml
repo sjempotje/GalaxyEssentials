@@ -1,0 +1,9 @@
+dev_title: "BartHazewinkel#2600 | Making shit happen"
+dev_desc: "This is GalaxyAI running on dataset 8.1.6 using GalaxyAI version 3.2.98a"
+dev_foot: "Keeping servers safe since 2019"
+
+inv_title: "**Thanks for Inviting %{username}**"
+inv_desc: "**%{username} Powered by TheGameHub**"
+
+ping_title: "**Ping of **"
+ping_desc: "My Ping is ***%{ping}ms***"
