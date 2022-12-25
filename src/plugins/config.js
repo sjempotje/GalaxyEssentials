@@ -19,6 +19,11 @@ module.exports = {
 
     MONGO_URI: process.env.MONGO_URI || "YOUR_MONGO_URI", // your mongo uri
 
+    SPOTIFY_ID: process.env.SPOTIFY_ID,
+    SPOTIFY_SECRET: process.env.SPOTIFY_SECRET,
+
+    DEFAULT: ["yorushika", "yoasobi", "tuyu"],
+
     PREMIUM_COMMANDS: ["profile"],
 
     PORT : process.env.PORT || 3000,
