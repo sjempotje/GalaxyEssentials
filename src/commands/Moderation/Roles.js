@@ -6,9 +6,11 @@ module.exports = {
     usage: "roles",
     category: "moderation",
     //needs to be an admin
-    permissions: [PermissionsBitField.Flags.Administrator],
+    permissions: ["ADMINISTRATOR"],
     run: async (interaction, client) => {
-        //the following roles and their ids
+        //check if user has permissions
+        if (!interaction.member.permissions.has(PermissionsBitField.Flags.Administrator)) return interaction.reply({ content: "You don't have the permission to use this command", ephemeral: true });
+
         const roles = [
             {
                 name: "Match Ping",
