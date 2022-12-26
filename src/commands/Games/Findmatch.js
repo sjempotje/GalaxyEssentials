@@ -293,6 +293,10 @@ module.exports = {
                             allow: [PermissionsBitField.Flags.ViewChannel, PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.ReadMessageHistory]
                         },
                         {
+                            id: interaction.user.id,
+                            allow: [PermissionsBitField.Flags.ViewChannel, PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.ReadMessageHistory]
+                        },
+                        {
                             id: category.guild.roles.everyone,
                             deny: [PermissionsBitField.Flags.ViewChannel, PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.ReadMessageHistory]
                         }
@@ -300,15 +304,75 @@ module.exports = {
                 });
 
 
-                //send a message to the channel
+                //send a close embed to the channel
                 const embed2 = new EmbedBuilder()
-                    .setTitle("Match found!")
+                    .setTitle("Match options")
                     .setDescription(`**Game:** ${game}\n**Platform:** ${platform}\n**Region:** ${region}\n**Age:** ${age}\n**Language:** ${language}\n**Description:** ${description}\n\n**Joined by:** ${button.user.tag}`)
                     .setFooter(
                         { text: `Requested by ${interaction.user.tag} | Done`, iconURL: client.user.displayAvatarURL({ dynamic: true }) }
                     )
                     .setTimestamp();
-                channel.send({ embeds: [embed2] });
+                const row2 = new ActionRowBuilder()
+                    .addComponents(
+                        new ButtonBuilder()
+                            .setLabel("Close")
+                            .setStyle("Danger")
+                            .setCustomId("close")
+                    //add an button for a voice channel with the name VC and the id of the user like this: VC-userid
+                    //in category 1056733178066378795
+                    )
+                    .addComponents(
+                        new ButtonBuilder()
+                            .setLabel("Voice channel")
+                            .setStyle("Primary")
+                            .setCustomId("voice")
+                    );
+
+                channel.send({ embeds: [embed2], components: [row2] });
+
+                //create a collector for the close button
+                const filter2 = (button) => button.user.id === interaction.user.id;
+                const collector2 = channel.createMessageComponentCollector({ filter2, time: 60000 });
+                collector2.on("collect", async (button) => {
+                    if (button.customId === "close") {
+                        button.deferUpdate();
+                        channel.delete();
+                        //edit the message in the channel 1056720445396754503
+                        const channel2 = await client.channels.fetch("1056720445396754503");
+                        const msg2 = await channel2.messages.fetch(msg.id);
+                        const embed3 = new EmbedBuilder()
+                            .setTitle("Find a match")
+                            .setDescription(`**Game:** ${game}\n**Platform:** ${platform}\n**Region:** ${region}\n**Age:** ${age}\n**Language:** ${language}\n**Description:** ${description}\n\n**Joined by:** ${button.user.tag}\n\n**Match closed by:** ${button.user.tag}`)
+                            .setFooter(
+                                { text: `Requested by ${interaction.user.tag} | Done`, iconURL: client.user.displayAvatarURL({ dynamic: true }) }
+                            )
+                            .setTimestamp();
+                        msg2.edit({ embeds: [embed3] });
+                    }
+                    if (button.customId === "voice") {
+                        button.deferUpdate();
+                        const category = await client.channels.fetch("1056733178066378795");
+                        const channel = await category.guild.channels.create({
+                            name: `VC-${button.user.id}`,
+                            type: ChannelType.GuildVoice,
+                            parent: category,
+                            permissionOverwrites: [
+                                {
+                                    id: button.user.id,
+                                    allow: [PermissionsBitField.Flags.ViewChannel, PermissionsBitField.Flags.Connect, PermissionsBitField.Flags.Speak]
+                                },
+                                {
+                                    id: interaction.user.id,
+                                    allow: [PermissionsBitField.Flags.ViewChannel, PermissionsBitField.Flags.Connect, PermissionsBitField.Flags.Speak]
+                                },
+                                {
+                                    id: category.guild.roles.everyone,
+                                    deny: [PermissionsBitField.Flags.ViewChannel, PermissionsBitField.Flags.Connect, PermissionsBitField.Flags.Speak]
+                                }
+                            ]
+                        });
+                    }
+                });
             }
         });
     }
