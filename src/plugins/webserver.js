@@ -39,6 +39,6 @@ module.exports = async (client) => {
         const moduleName = module.split(".")[0];
         const moduleRoute = require(`../plugins/modules/${module}`);
         app.use(`/${moduleName}`, moduleRoute);
-        client.logger.info(`Module ${moduleName} loaded.`);
+        client.logger.info(`Webserver - Module ${moduleName} loaded.`);
     });
 }

@@ -337,6 +337,10 @@ module.exports = {
                     if (button.customId === "close") {
                         button.deferUpdate();
                         channel.delete();
+                        //delete the voice channel
+                        const channel4 = await client.channels.fetch("1056733178066378795");
+                        const channel3 = await channel4.guild.channels.cache.find(channel => channel.name === `VC-${button.user.id}`);
+                        channel3.delete();
                         //edit the message in the channel 1056720445396754503
                         const channel2 = await client.channels.fetch("1056720445396754503");
                         const msg2 = await channel2.messages.fetch(msg.id);
