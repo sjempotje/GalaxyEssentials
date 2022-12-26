@@ -229,7 +229,8 @@ module.exports = {
         const description = interaction.options.getString("description");
         const embed = new EmbedBuilder()
             .setTitle("Find a match")
-            .setDescription(`**Game:** ${game}\n**Platform:** ${platform}\n**Region:** ${region}\n**Age:** ${age}\n**Language:** ${language}\n**Description:** ${description}`)
+            //ping the role matchping
+            .setDescription(`**Game:** ${game}\n**Platform:** ${platform}\n**Region:** ${region}\n**Age:** ${age}\n**Language:** ${language}\n**Description:** ${description}\n\n<@&1056920784930619463>`)
             .setFooter(
                 { text: `Requested by ${interaction.user.tag} | Pending`, iconURL: client.user.displayAvatarURL({ dynamic: true }) }
             )
