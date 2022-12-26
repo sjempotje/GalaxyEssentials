@@ -1,4 +1,6 @@
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ChannelType, PermissionsBitField } = require('discord.js');
+const Match = require('../../plugins/schemas/matches.js');
+
 module.exports = {
     name: ["games", "findmatch"],
     description: "Find a match",
@@ -221,6 +223,40 @@ module.exports = {
         }
     ],
     run: async (interaction, client) => {
+        //data structure
+        //     guild: {
+        //         type: String,
+        //         required: true,
+        //         unique: true,
+        //     },
+        //     //id of the channel where the matches are posted
+        //     channel: {
+        //         type: String,
+        //         required: true,
+        //     },
+        //     //id of the match (e.g. 1)
+        //     match_id: {
+        //         type: Number,
+        //         required: true,
+        //     },
+        //     //when did the match start
+        //     match_start: {
+        //         type: Date,
+        //         required: true,
+        //     },
+        //     //when did the match end
+        //     match_end: {
+        //         type: Date,
+        //         required: true,
+        //     },
+        //     //the players in the match
+        //     players: {
+        //         type: Array,
+        //         required: true,
+        //     }
+        // });
+        //get the data from the interaction!
+
         const game = interaction.options.getString("game");
         const platform = interaction.options.getString("platform");
         const region = interaction.options.getString("region");
@@ -249,6 +285,20 @@ module.exports = {
         //now we send the message to the channel 1056720445396754503
         const channel = await client.channels.fetch("1056720445396754503");
         const msg = await channel.send({ embeds: [embed], components: [row] });
+
+        //now we create a new match in the database
+        //we don't know the match_end and channel yet
+        const match = new Match({
+            guild: interaction.guild.id,
+            channel: msg.channel.id,
+            match_id: match_id,
+            match_start: Date.now(),
+            match_end: null,
+            players: [interaction.user.id]
+        });
+
+        //find the match with the highest match_id in every guild the bot is in
+        
 
         //now we create a collector for the button
         const filter = (button) => button.user.id != interaction.user.id;
@@ -280,6 +330,13 @@ module.exports = {
                             .setCustomId("join")
                     );
                 msg.edit({ embeds: [embed], components: [row] });
+
+                //now we need to add the user that pressed the button to the database
+                const match = await
+                    Match.findOneAndUpdate(
+                        { guild: interaction.guild.id, match_id: matchIDafter },
+                        { $push: { players: button.user.id } }
+                    );
 
                 //create a custom channel with the name of the game and the id of the user like this: game-userid
                 //in category 1056733178066378795
@@ -353,6 +410,13 @@ module.exports = {
                             )
                             .setTimestamp();
                         msg2.edit({ embeds: [embed3] });
+
+                        //when the match is closed, we need change the end time of the match in the database
+                        const match2 = await
+                            Match.findOneAndUpdate(
+                                { guild: interaction.guild.id, match_id: matchIDafter },
+                                { end: Date.now() }
+                            );
                     }
                     if (button.customId === "voice") {
                         button.deferUpdate();
