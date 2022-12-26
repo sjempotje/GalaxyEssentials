@@ -1,4 +1,6 @@
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, version } = require('discord.js');
+//use plugin schema matches.js
+const matches = require('../../plugins/schemas/matches.js');
 
 module.exports = {
     name: ["games", "runningmatches"],
