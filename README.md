@@ -42,11 +42,7 @@
 - This bot is still in development, so expect bugs and errors
 - If you have any questions, feel free to join our [Discord Server](https://discord.gg/eZay8FNZMW)
 - There is still code left from GalaxyMusic, so if you find any, please let me know!!
-
-
-## Built With
-
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+- Please use the main branch, testing branch maybe unstable!
 
 ## Getting Started
 
