@@ -32,7 +32,7 @@ module.exports = {
             .addComponents([
                 new SelectMenuBuilder()
                     .setCustomId("help-category")
-                    .setPlaceholder(`${client.i18n.get(language, "utilities", "help_desc")}`)
+                    .setPlaceholder(`Select a category`)
                     .setMaxValues(1)
                     .setMinValues(1)
                     /// Map the categories to the select menu

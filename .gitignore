@@ -7,3 +7,8 @@ docker-compose.yml
 logs/error.log
 logs/info.log
 logs/warn.log
+GalaxyMusicv3 - kopie.rar
+src/plugins/modules/logs/*
+src/plugins/modules/magister/*
+src/deprecatedcommands/*
+src.zip

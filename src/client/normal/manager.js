@@ -15,6 +15,8 @@ class Manager extends Client {
                 GatewayIntentBits.Guilds,
                 GatewayIntentBits.GuildVoiceStates,
                 GatewayIntentBits.GuildMessages,
+                GatewayIntentBits.GuildMessageReactions,
+                GatewayIntentBits.GuildMembers
             ]
         });
     this.config = require("../../plugins/config.js");

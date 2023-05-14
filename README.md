@@ -96,6 +96,8 @@ DISCORD_TOKEN="YOUR_DISCORD_TOKEN" #twice I know, still needs work :)
 PORT=3001
 
 OPENAI=YOUR_OPENAI_TOKEN
+
+API=API TO GALAXYAI
 ```
 
 ## Roadmap
@@ -125,4 +127,4 @@ Distributed under the MIT License. See [LICENSE](https://github.com/SjemPotje/ga
 ## Authors
 
 * **Sjempotje** - *Freelance* - [Sjempotje](https://github.com/SjemPotje/) - *Building the REPO*
-* **TheGameHub** - *Discord server and ESports* - [TheGameHub](https://discord.gg/eZay8FNZMW) - **
+* **GalaxyStudio's** - *Discord server and ESports* - [TheGameHub](https://discord.gg/BtqtH9MbZy) - **

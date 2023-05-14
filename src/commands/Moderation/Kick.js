@@ -1,4 +1,4 @@
-const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, version } = require('discord.js');
+const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, PermissionsBitField } = require('discord.js');
 
 module.exports = {
     name: ["moderation", "kick"],
@@ -21,7 +21,8 @@ module.exports = {
     ],
     permissions: ["KICK_MEMBERS"],
     run: async (interaction, client, language) => {
-        //kick the user
+        //check kick permissions
+        if (!interaction.member.permissions.has(PermissionsBitField.Flags.KickMembers)) return interaction.reply({ content: "You don't have the permission to kick members", ephemeral: true });
         let user = interaction.options.getUser("user");
         let reason = interaction.options.getString("reason") || "No reason provided";
         let member = interaction.guild.members.cache.get(user.id);
