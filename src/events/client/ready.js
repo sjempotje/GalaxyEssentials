@@ -7,17 +7,26 @@ module.exports = async (client) => {
     require("../../plugins/autoDeploy.js")(client)
     // Webserver (Express)
     require("../../plugins/webserver.js")(client)
+    // Magister
+    require("../../plugins/magister.js")(client)
+    // Credits
+    require("../../plugins/credits.js")(client)
+    // Metrics
+    require("../../plugins/metricsCollector.js")(client)
+    // Log Parser
+    require("../../plugins/logparser.js")(client)
+
     const users = await Premium.find();
     users.forEach(user => client.premiums.set(user.Id, user))
 
+
     let guilds = client.guilds.cache.size;
     let members = client.guilds.cache.reduce((a, b) => a + b.memberCount, 0);
-    let channels = client.channels.cache.size;
 
     const activities = [
-        `over ${members} users! | 📡`,
-        `Galaxy Essentials | /help`,
-        `Monitoring everything! | 📡`,
+        `Creating art as if it's nothing`,
+        `Galaxy AI used by ${guilds} guilds`,
+        `Galaxy AI used by ${members} members`,
     ]
 
     setInterval(() => {

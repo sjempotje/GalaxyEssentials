@@ -19,27 +19,29 @@ module.exports = {
     ],
     permissions: ["MANAGE_GUILD"],
     run: async (interaction, client, language) => {
-        const key = OPENAI;
+        // const key = OPENAI;
 
-        const configuration = new Configuration({
-        apiKey: key,
-        });
-        const openai = new OpenAIApi(configuration);
+        // const configuration = new Configuration({
+        // apiKey: key,
+        // });
+        // const openai = new OpenAIApi(configuration);
 
-        const response = openai.createCompletion({
-        model: "code-davinci-002",
-        prompt: interaction.options.getString("text"),
-        temperature: 0,
-        max_tokens: 256
-        });
+        // const response = openai.createCompletion({
+        // model: "code-davinci-002",
+        // prompt: interaction.options.getString("text"),
+        // temperature: 0,
+        // max_tokens: 256
+        // });
 
-        //log the text of the response when it is done
-        response.then(function(response) {
-        console.log(response.data.choices[0].text);
-        });
-        //when the above function is done, send the response
-        response.then(function(response) {
-        interaction.reply({ content: response.data.choices[0].text })
-        });
+        // //log the text of the response when it is done
+        // response.then(function(response) {
+        // console.log(response.data.choices[0].text);
+        // });
+        // //when the above function is done, send the response
+        // response.then(function(response) {
+        // interaction.reply({ content: response.data.choices[0].text })
+        // });
+
+        interaction.reply("Hey, sorry but this command is deprecated.")
     }
 };

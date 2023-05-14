@@ -1,26 +1,32 @@
 {
   "name": "galaxyessentials",
-  "version": "2.5",
+  "version": "2.6",
   "description": "A discord bot build on the galaxymusic framework",
   "main": "index.js",
   "dependencies": {
     "@discordjs/rest": "^1.0.1",
     "@hammerhq/localization": "^0.1.2-alpha.0",
+    "adm-zip": "^0.5.10",
     "axios": "^1.1.3",
+    "body-parser": "^1.20.2",
     "chillout": "^5.0.0",
     "common-tags": "^1.8.2",
+    "decompress": "^4.2.1",
     "delay": "^5.0.0",
     "discord-api-types": "^0.37.0",
     "discord-hybrid-sharding": "^1.7.4",
-    "discord.js": "^14.6.0",
+    "discord.js": "^14.8.0",
     "dotenv": "^16.0.1",
+    "ejs": "^3.1.9",
     "express": "^4.18.2",
+    "express-formidable-v2": "^2.2.1",
     "googleapis": "^48.0.0",
     "humanize-duration": "^3.27.3",
     "kazagumo": "^2.3.0",
     "kazagumo-deezer": "^1.2.1",
     "kazagumo-spotify": "^1.1.5",
     "lyrics-finder": "^21.7.0",
+    "minecraft-lookup": "^1.1.36",
     "moment": "^2.29.4",
     "mongoose": "^6.7.1",
     "node-cron": "^3.0.2",
@@ -54,6 +60,7 @@
   "homepage": "https://github.com/sjempotje/galaxyessentials#readme",
   "devDependencies": {
     "node": "^17.7.2",
-    "nodemon": "^2.0.19"
+    "nodemon": "^2.0.19",
+    "typescript": "^5.0.4"
   }
 }

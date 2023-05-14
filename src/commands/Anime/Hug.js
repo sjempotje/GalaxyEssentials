@@ -17,7 +17,6 @@ module.exports = {
     run: async (interaction, client, language) => {
         let link = ""
         await interaction.deferReply({ ephemeral: false });
-        if(interaction.user.id != client.owner) return interaction.editReply({ content: `${client.i18n.get(language, "interaction", "owner_only")}` });
         await fetch('https://some-random-api.ml/animu/hug').then(res => res.json()).then(json => link = json.link);
         const value = interaction.options.getUser("user")
 

@@ -2,16 +2,20 @@ const { EmbedBuilder, ApplicationCommandOptionType } = require('discord.js');
 const fetch = require('node-fetch')
 
 module.exports = {
-    name: ["anime", "wink"],
-    description: "Post the random wink",
-    categories: "Anime",
+    name: ["fun", "joke"],
+    description: "Post the random face palm",
+    categories: "Fun",
     premium: false,
+
     run: async (interaction, client, language) => {
-        let link = ""
         await interaction.deferReply({ ephemeral: false });
-        await fetch('https://some-random-api.ml/animu/wink').then(res => res.json()).then(json => link = json.link);
+        joke = await fetch('https://some-random-api.ml/joke').then(res => res.json()).then(json => joke2 = json.joke);
+        //make joke into a string
+        console.log(joke) 
+
         const embed = new EmbedBuilder()
-            .setImage(link)
+            .setDescription(`*Jokes on you *`)
+            .addField(`Joke:`, joke)
             .setFooter({ text: `Provided by some-random-api.ml`, iconURL: client.user.displayAvatarURL({ dynamic: true })})
         interaction.editReply({ embeds: [embed] })
     }

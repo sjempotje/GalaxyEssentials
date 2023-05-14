@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Image upload</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/css/tether-theme-arrows-dark.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/dark.min.css'><link rel="stylesheet" href="./post.css">
+
+</head>
+<body>
+<div class="container">
+  <div class="col-md-10 offset-md-1">
+    <div class="card-deck">
+      <div class="card">
+        <div class="card-header">Upload</div>
+        <div class="card-block">
+          <form id="form">
+            <div class="input-fields"></div>
+            <div class="form-group">
+              <label>Upload zip file</label>
+              <input class="form-control" id="file" type="file" placeholder="file"/>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div><br/>
+  <div class="col-md-10 offset-md-1">
+    <div class="card-deck">
+      <div class="card">
+        <div class="card-header">Embed Publisher</div>
+        <div class="card-block">
+          <form id="form">
+            <div class="form-group">
+                <input class="form-control" id="password" type="password" placeholder="password"/>
+            </div>
+            <div class="form-group">
+                <input class="form-control" id="other_text" type="text" placeholder="channel id here!"/>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div><br/>
+  <div class="col-md-8 offset-md-2">         
+    <div class="card">
+      <div class="card-header">Upload the files</div>
+      <div class="card-block preview">
+        <div class="form-group">
+          <!-- hidden by default -->
+          <button id="send4" class="btn btn-success" style="display:none">Send</button>
+      </div>
+      </div>
+    </div>
+  </div><br/>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js'></script><script  src="./upload.js"></script>
+
+</body>
+</html>

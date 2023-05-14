@@ -1,19 +1,19 @@
 const mongoose = require('mongoose');
 
 const CreateMatches = mongoose.Schema({
+    //store it like this: guild and under guild the channel id and there under
+    match_id: {
+        type: Number,
+        required: true,
+        unique: true,
+    },
     guild: {
         type: String,
         required: true,
-        unique: true,
     },
     //id of the channel where the matches are posted
     channel: {
         type: String,
-        required: true,
-    },
-    //id of the match (e.g. 1)
-    match_id: {
-        type: Number,
         required: true,
     },
     //when did the match start
