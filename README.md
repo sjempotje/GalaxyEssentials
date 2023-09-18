@@ -127,4 +127,4 @@ Distributed under the MIT License. See [LICENSE](https://github.com/SjemPotje/ga
 ## Authors
 
 * **Sjempotje** - *Freelance* - [Sjempotje](https://github.com/SjemPotje/) - *Building the REPO*
-* **GalaxyStudio's** - *Discord server and ESports* - [TheGameHub](https://discord.gg/BtqtH9MbZy) - **
+* **GalaxyStudio's** - *Discord server for support and more* - [TheGameHub](https://discord.gg/BtqtH9MbZy) - **
